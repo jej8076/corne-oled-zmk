@@ -41,16 +41,34 @@
 
                 raise_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  F1  |  F2  |  F3  |  F4  |  F5        |   |  7  |  8  |  9  |  0  |     | BKSP |
-// | CTRL |  F6   |  F7   |  F8   |  F9   |  F10   |   |  4  |  5  |  6  |     |     | ENTER |
-// | SHFT |  F11   |  F12   |     |     |          |   |  1  |  2  |  3  |     |     |  SHFT |
+// |  TAB |  F1  |  F2  |  F3  |  F4  |  F5        |   |     |  7  |  8  |  9  |  0  | BKSP |
+// | CTRL |  F6   |  F7   |  F8   |  F9   |  F10   |   |     |  4  |  5  |  6  |     | ENTER |
+// | SHFT |  F11   |  F12   |     |     |          |   |     |  1  |  2  |  3  |     |  SHFT |
 //                    | LALT | CMD | SPC           |   |     |     |  0  |
                         bindings = <
-   &kp  TAB  &kp F1 &kp F2 &kp F3 &kp F4 &kp F5            &kp N7  &kp N8  &kp N9 &kp N0 &trans &kp BSPC
-   &kp LCTRL &kp F6 &kp F7 &kp F8 &kp F9 &kp F10           &kp N4  &kp N5  &kp N6 &trans &trans &kp RET
-   &kp LSHFT &kp F11  &kp F12 &trans   &trans   &trans     &kp N1  &kp N2  &kp N3 &trans &trans &kp RSHFT
+   &kp  TAB  &kp F1 &kp F2 &kp F3 &kp F4 &kp F5            &trans &kp N7  &kp N8  &kp N9 &kp N0 &kp BSPC
+   &kp LCTRL &kp F6 &kp F7 &kp F8 &kp F9 &kp F10           &trans &kp N4  &kp N5  &kp N6 &trans &kp RET
+   &kp LSHFT &kp F11  &kp F12 &trans   &trans   &trans     &trans &kp N1  &kp N2  &kp N3 &trans &kp RSHFT
                              &kp LALT &kp LGUI &kp SPACE   &trans   &trans    &kp N0
                         >;
                 };
         };
+};
+
+/ {
+    combos {
+        compatible = "zmk,combo";
+
+        combo_esc {
+            timeout-ms = <50>; 
+            bindings = <&kp ESC>;
+            key-positions = <0 12>; // TAB, CTRL
+        };
+
+        combo_left_click {
+            timeout-ms = <50>;
+            bindings = <&kp MS_BTN1>; // LEFT CLICK
+            key-positions = <3 4>; // E, R
+        };
+    };
 };
