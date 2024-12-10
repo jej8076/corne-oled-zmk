@@ -11,7 +11,7 @@
 
 #define COMBO(NAME, BINDINGS, KEYPOS) \
   combo_##NAME { \
-    timeout-ms = <50>; \
+    timeout-ms = <200>; \
     bindings = <BINDINGS>; \
     key-positions = <KEYPOS>; \
     layers = <0>; \
@@ -22,7 +22,7 @@
         combos {
                 compatible = "zmk,combo";
 
-                COMBO(slash, &kp ESC,  12)
+                COMBO(, &kp ESC, 0 12)
         };
 
         keymap {
