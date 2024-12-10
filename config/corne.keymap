@@ -53,22 +53,21 @@
                         >;
                 };
         };
+
+        combos {
+                compatible = "zmk,combo";
+
+                combo_esc {
+                timeout-ms = <50>; 
+                bindings = <&kp ESC>;
+                key-positions = <0 12>; // TAB, CTRL
+                };
+
+                combo_left_click {
+                timeout-ms = <50>;
+                bindings = <&kp MS_BTN1>; // LEFT CLICK
+                key-positions = <3 4>; // E, R
+                };
+        };
 };
 
-/ {
-    combos {
-        compatible = "zmk,combo";
-
-        combo_esc {
-            timeout-ms = <50>; 
-            bindings = <&kp ESC>;
-            key-positions = <0 12>; // TAB, CTRL
-        };
-
-        combo_left_click {
-            timeout-ms = <50>;
-            bindings = <&kp MS_BTN1>; // LEFT CLICK
-            key-positions = <3 4>; // E, R
-        };
-    };
-};
