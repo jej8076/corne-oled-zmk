@@ -63,7 +63,7 @@
                         bindings = <
    &kp GRAVE    &trans &trans &trans &trans &trans         &kp LBKT &kp UP &kp RBKT     &trans   &trans    &kp BSPC
    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp RIGHT &trans &trans &kp RET
-   &kp LSHFT  &bt BT_CLR_ALL &trans  &trans  &trans  &trans         &trans  &trans  &trans &trans &trans &kp RSHFT
+   &kp LSHFT  &trans &trans &trans  &trans  &trans         &trans  &trans  &trans &trans &trans &kp RSHFT
                                     &kp LALT &kp LGUI &kp SPACE     &trans  &trans  &trans
                         >;
                 };
