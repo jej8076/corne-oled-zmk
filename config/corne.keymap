@@ -31,13 +31,13 @@
                         compatible = "zmk,combo";
 
                         combo_esc {
-                                timeout-ms = <50>; 
+                                timeout-ms = <200>; 
                                 bindings = <&kp ESC>;
                                 key-positions = <0 12>; // TAB, CTRL
                         };
 
                         combo_left_click {
-                                timeout-ms = <50>;
+                                timeout-ms = <200>;
                                 bindings = <&mkp LCLK>; // LEFT CLICK
                                 key-positions = <3 4>; // E, R
                         };
