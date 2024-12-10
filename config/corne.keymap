@@ -20,9 +20,9 @@
 / {
 
         combos {
-                compatible = "zmk,combo";
+                compatible = "zmk,combos";
 
-                COMBO(esc, &kp ESC, 0 12)
+                COMBO(esc_combo, &kp ESC, 0 12)
         };
 
         keymap {
