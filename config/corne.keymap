@@ -7,78 +7,49 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/mouse.h>
 
-#define COMBO(NAME, BINDINGS, KEYPOS) \
-  combo_##NAME { \
-    timeout-ms = <200>; \
-    bindings = <BINDINGS>; \
-    key-positions = <KEYPOS>; \
-    layers = <0>; \
-  };
- 
 / {
-
-        combos {
-                compatible = "zmk,combos";
-
-                COMBO(combo_esc, &kp ESC, 0 12)
-                COMBO(combo_click, &mkp LCLK, 3 4)
-                COMBO(combo_min, &kp MINUS, 8 9)
-                COMBO(combo_equal, &kp EQUAL, 9 10)
-                COMBO(combo_bsls, &kp BSLS, 10 11)
-                COMBO(combo_quot, &kp SQT, 22 23)
-                COMBO(combo_F6, &kp F6, 12 13)
-                COMBO(combo_F7, &kp F7, 13 14)
-                COMBO(combo_F8, &kp F8, 14 15)
-                COMBO(combo_F9, &kp F9, 15 16)
-                COMBO(combo_F10, &kp F10, 16 17)
-                COMBO(combo_F11, &kp F11, 24 25)
-                COMBO(combo_F12, &kp F12, 25 26)
-        };
-
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  ENT |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |RSHIFT|
-//                    | LALT | CMD | SPC |   | MO1 | MO2  | F13 |
+// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp RET
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                  &kp LALT &kp LGUI &kp SPACE   &mo 1 &mo 2 &kp F13
+   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
+                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
                         >;
                 };
-
                 lower_layer {
 // -----------------------------------------------------------------------------------------
-// | GRV |  Q  |  W  |  E  |  R  |  T  |   |  LBKT  |  UP  |  RBKT  |     |      | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  RGT |    |     |      | ENT
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |RSHIFT
-//                    | LALT | CMD | SPC |   |    |     |     |
+// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
+// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
+// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
+//                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp GRAVE    &kp Q &kp W &kp E &kp R &kp T         &kp LBKT &kp UP &kp RBKT     &trans   &trans    &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp RIGHT &trans &trans &kp RET
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &kp RSHFT
-                                    &kp LALT &kp LGUI &kp SPACE     &trans  &trans  &trans
+   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
+                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
                         >;
                 };
 
                 raise_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  F1  |  F2  |  F3  |  F4  |  F5        |   |     |  7  |  8  |  9  |  0  | BKSP |
-// | CTRL |  F6   |  F7   |  F8   |  F9   |  F10   |   |     |  4  |  5  |  6  |     | ENTER |
-// | SHFT |  F11   |  F12   |     |     |          |   |     |  1  |  2  |  3  |     |  SHFT |
-//                    | LALT | CMD | SPC           |   |     |     |  0  |
+// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+//                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp  TAB  &kp F1 &kp F2 &kp F3 &kp F4 &kp F5            &trans &kp N7  &kp N8  &kp N9 &kp N0 &kp BSPC
-   &kp LCTRL &kp F6 &kp F7 &kp F8 &kp F9 &kp F10           &trans &kp N4  &kp N5  &kp N6 &trans &kp RET
-   &kp LSHFT &kp F11  &kp F12 &trans   &trans   &trans     &trans &kp N1  &kp N2  &kp N3 &trans &kp RSHFT
-                             &kp LALT &kp LGUI &kp SPACE   &trans   &trans    &kp N0
+   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
+   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
+   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
+                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
                         >;
                 };
         };
