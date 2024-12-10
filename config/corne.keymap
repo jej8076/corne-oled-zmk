@@ -20,9 +20,21 @@
 / {
 
         combos {
-                compatible = "zmk,combo";
+                compatible = "zmk,combos";
 
-                COMBO(esc, &kp ESC, 0 12)
+                COMBO(combo_esc, &kp ESC, 0 12)
+                COMBO(combo_click, &mkp LCLK, 3 4)
+                COMBO(combo_min, &kp MINUS, 8 9)
+                COMBO(combo_equal, &kp EQUAL, 9 10)
+                COMBO(combo_bsls, &kp BSLS, 10 11)
+                COMBO(combo_quot, &kp SQT, 22 23)
+                COMBO(combo_F6, &kp F6, 12 13)
+                COMBO(combo_F7, &kp F7, 13 14)
+                COMBO(combo_F8, &kp F8, 14 15)
+                COMBO(combo_F9, &kp F9, 15 16)
+                COMBO(combo_F10, &kp F10, 16 17)
+                COMBO(combo_F11, &kp F11, 24 25)
+                COMBO(combo_F12, &kp F12, 25 26)
         };
 
         keymap {
