@@ -56,14 +56,14 @@
 
                 lower_layer {
 // -----------------------------------------------------------------------------------------
-// | GRV |  Q  |  W  |  E  |  R  |  T  |   |  LBKT  |  UP  |  RBKT  |     |      | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  RGT |    |     |      | ENT
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |RSHIFT
-//                    | LALT | CMD | SPC |   |    |     |     |
+// | GRV |  Q  |  W  |  E  |  R  |  T      |   |  LBKT  |  UP  |  RBKT  |     |      | BKSP |
+// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5    |   |  LFT  |  DWN  |  RGT |    |     |      | ENT
+// | SHFT |BTCLRALL|     |     |     |     |   |     |     |     |     |     |      |RSHIFT
+//                      | LALT | CMD | SPC |   |     |     |     |
                         bindings = <
    &kp GRAVE    &kp Q &kp W &kp E &kp R &kp T         &kp LBKT &kp UP &kp RBKT     &trans   &trans    &kp BSPC
    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp RIGHT &trans &trans &kp RET
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &kp RSHFT
+   &kp LSHFT  &bt BT_CLR_ALL &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &kp RSHFT
                                     &kp LALT &kp LGUI &kp SPACE     &trans  &trans  &trans
                         >;
                 };
