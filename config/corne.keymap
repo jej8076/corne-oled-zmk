@@ -19,6 +19,15 @@
  
 / {
 
+        behaviors {
+            td_spc_f14: tap_dance_0 {
+                compatible = "zmk,behavior-tap-dance";
+                #binding-cells = <0>;
+                tapping-term-ms = <200>;
+                bindings = <&kp A>;
+            };
+        };
+
         combos {
                 compatible = "zmk,combos";
 
@@ -37,19 +46,6 @@
                 COMBO(combo_F12, &kp F12, 25 26)
         };
 
-        behaviors {
-            spc_f14: behavior {
-                compatible = "zmk,behavior-hold-tap";
-                label = "SPC_F14";
-                #binding-cells = <0>;
-                bindings = <&kp SPC>, <&kp F14>;
-                hold-tap {
-                    tapping-term-ms = <200>;  // Tap으로 간주하는 최대 시간 (200ms)
-                    quick-tap-ms = <200>;    // 빠른 탭 동작 처리 시간
-                };
-            };
-        };
-
         keymap {
                 compatible = "zmk,keymap";
 
@@ -63,7 +59,7 @@
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp RET
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                  &kp LALT &kp LGUI &spc_f14   &mo 1 &mo 2 &kp F13
+                  &kp LALT &kp LGUI &td_spc_f14   &mo 1 &mo 2 &kp F13
                         >;
                 };
 
