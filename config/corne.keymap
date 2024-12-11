@@ -113,14 +113,14 @@
 
                 mouse_layer {
 // -----------------------------------------------------------------------------------------
-// | TAB |     |     |     |     |         |   |       |  UP   |        |     |     | BKSP |
-// | CTRL|     |     |     |     |         |   |  LFT  |  DWN  |  RGT   |     |     | ENT  | 
-// | SHFT |    |     |     |     |  BTCLR  |   |       |       |        |     |     |RSHIFT|
-//                      | LALT | CMD | SPC |   |       |       |        |
+// | TAB |     |     |     |     |         |   |       |        |   MUP  |      |      | BKSP |
+// | CTRL|     |     |     |     |         |   |       |  MLFT  |  MDWN  | MRGT |      | ENT  |
+// | SHFT |    |     |     |     |         |   |       |        |        |      |      |RSHIFT|
+//                      | LALT | CMD | SPC |   |       |        |        |
                         bindings = <
-   &kp TAB   &trans &trans &trans &trans &trans             &trans         &mmv MOVE_UP   &trans          &trans   &trans    &kp BSPC
-   &kp LCTRL &trans &trans &trans &trans &trans             &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans &trans &kp RET
-   &kp LSHFT &trans &trans &trans &trans &trans             &trans         &trans         &trans          &trans &trans &kp RSHFT
+   &kp TAB   &trans &trans &trans &trans &trans             &trans &trans         &mmv MOVE_UP   &trans          &trans &kp BSPC
+   &kp LCTRL &trans &trans &trans &trans &trans             &trans &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans &kp RET
+   &kp LSHFT &trans &trans &trans &trans &trans             &trans &trans         &trans         &trans          &trans &kp RSHFT
                                     &kp LALT &kp LGUI &kp SPACE     &trans  &trans  &trans
                         >;
                 };
