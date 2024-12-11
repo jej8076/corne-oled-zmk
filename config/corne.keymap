@@ -11,34 +11,59 @@
 
 #define COMBO(NAME, BINDINGS, KEYPOS) \
   combo_##NAME { \
-    timeout-ms = <100>; \
+    timeout-ms = <50>; \
     bindings = <BINDINGS>; \
     key-positions = <KEYPOS>; \
     layers = <0>; \
   };
 
+#define COMBO2(NAME, BINDINGS, KEYPOS) \
+  combo2_##NAME { \
+    timeout-ms = <50>; \
+    bindings = <BINDINGS>; \
+    key-positions = <KEYPOS>; \
+    layers = <3>; \
+  };
+
+#define U_MOUSE_MOVE_MAX 1400
+#undef MOVE_UP
+#undef MOVE_DOWN
+#undef MOVE_LEFT
+#undef MOVE_RIGHT
+#define MOVE_UP MOVE_VERT(-U_MOUSE_MOVE_MAX)
+#define MOVE_DOWN MOVE_VERT(U_MOUSE_MOVE_MAX)
+#define MOVE_LEFT MOVE_HOR(-U_MOUSE_MOVE_MAX)
+#define MOVE_RIGHT MOVE_HOR(U_MOUSE_MOVE_MAX)
+
+&mmv {
+	time-to-max-speed-ms = <400>;
+};
+
 &mt {
   flavor = "tap-preferred";
-  tapping-term-ms = <140>;
+  tapping-term-ms = <130>;
 };
  
 / {
         combos {
                 compatible = "zmk,combos";
 
-                COMBO(combo_esc, &kp ESC, 0 12)
-                COMBO(combo_lclick, &mkp LCLK, 3 4)
-                COMBO(combo_min, &kp MINUS, 8 9)
-                COMBO(combo_equal, &kp EQUAL, 9 10)
-                COMBO(combo_backslash, &kp BSLH, 10 11)
-                COMBO(combo_quot, &kp SQT, 21 22)
-                COMBO(combo_F6, &kp F6, 12 13)
-                COMBO(combo_F7, &kp F7, 13 14)
-                COMBO(combo_F8, &kp F8, 14 15)
-                COMBO(combo_F9, &kp F9, 15 16)
-                COMBO(combo_F10, &kp F10, 16 17)
-                COMBO(combo_F11, &kp F11, 24 25)
-                COMBO(combo_F12, &kp F12, 25 26)
+                COMBO(esc, &kp ESC, 0 12)
+                COMBO(lclick, &mkp LCLK, 3 4)
+                COMBO(min, &kp MINUS, 8 9)
+                COMBO(equal, &kp EQUAL, 9 10)
+                COMBO(backslash, &kp BSLH, 10 11)
+                COMBO(quot, &kp SQT, 21 22)
+                COMBO(F6, &kp F6, 12 13)
+                COMBO(F7, &kp F7, 13 14)
+                COMBO(F8, &kp F8, 14 15)
+                COMBO(F9, &kp F9, 15 16)
+                COMBO(F10, &kp F10, 16 17)
+                COMBO(F11, &kp F11, 24 25)
+                COMBO(F12, &kp F12, 25 26)
+                COMBO(mouse, &mo 3, 39 40)
+
+                COMBO2(lclick, &mkp LCLK, 3 4)
         };
 
         keymap {
@@ -83,6 +108,20 @@
    &kp LCTRL &kp F6 &kp F7 &kp F8 &kp F9 &kp F10           &trans &kp N4  &kp N5  &kp N6 &trans &kp RET
    &kp LSHFT &kp F11  &kp F12 &trans   &trans   &trans     &trans &kp N1  &kp N2  &kp N3 &trans &kp RSHFT
                              &kp LALT &kp LGUI &kp SPACE   &trans   &trans    &kp N0
+                        >;
+                };
+
+                mouse_layer {
+// -----------------------------------------------------------------------------------------
+// | TAB |     |     |     |     |         |   |       |  UP   |        |     |     | BKSP |
+// | CTRL|     |     |     |     |         |   |  LFT  |  DWN  |  RGT   |     |     | ENT  | 
+// | SHFT |    |     |     |     |  BTCLR  |   |       |       |        |     |     |RSHIFT|
+//                      | LALT | CMD | SPC |   |       |       |        |
+                        bindings = <
+   &kp TAB   &trans &trans &trans &trans &trans             &trans         &mmv MOVE_UP   &trans          &trans   &trans    &kp BSPC
+   &kp LCTRL &trans &trans &trans &trans &trans             &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans &trans &kp RET
+   &kp LSHFT &trans &trans &trans &trans &trans             &trans         &trans         &trans          &trans &trans &kp RSHFT
+                                    &kp LALT &kp LGUI &kp SPACE     &trans  &trans  &trans
                         >;
                 };
         };
