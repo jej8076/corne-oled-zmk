@@ -24,7 +24,7 @@
                 compatible = "zmk,behavior-tap-dance";
                 label = "TD_MT";
                 #binding-cells = <0>;
-                tapping-term-ms = <200>;
+                tapping-term-ms = <150>;
                 bindings = <&mt F14 SPACE>;
             };
         };
