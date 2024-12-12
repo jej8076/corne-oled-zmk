@@ -62,6 +62,7 @@
                 COMBO(F11, &kp F11, 24 25)
                 COMBO(F12, &kp F12, 25 26)
                 COMBO(mouse, &mo 3, 39 40)
+		COMBO(ble_clear, &bt BT_CLR, 27 21 4)
 
                 COMBO2(lclick, &mkp LCLK, 3 4)
         };
