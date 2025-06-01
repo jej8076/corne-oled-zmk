@@ -44,7 +44,7 @@
                 compatible = "zmk,combos";
 
                 COMBO(esc, &kp ESC, 0 12)
-		COMBO(togglewheel, F19, 2 3)
+		COMBO(togglewheel, &kp F19, 2 3)
                 COMBO(lclick, &mkp LCLK, 3 4)
                 COMBO(min, &kp MINUS, 8 9)
                 COMBO(equal, &kp EQUAL, 9 10)
