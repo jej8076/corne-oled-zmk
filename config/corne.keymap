@@ -43,6 +43,7 @@
         behaviors {
                 space_ht: space_hold_tap {
                         compatible = "zmk,behavior-hold-tap";
+                        label = "SPACE_HOLD_TAP";
                         #binding-cells = <2>;
                         tapping-term-ms = <200>;
                         flavor = "balanced";
